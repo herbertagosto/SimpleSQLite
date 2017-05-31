@@ -1,19 +1,27 @@
-# SimpleMysql
-Simplify MySQL implementation
+# SimpleSQLite
+sqlite-net extensions
 
 
 ## Getting Started
 
 ```
-Mysql mysql = new Mysql("127.0.0.1", "database", "admin", "admin");
-DataTable result = mysql.Query("SELECT * FROM database.table;");
-foreach (DataRow row in result.Rows)
+using (var conn = new SQLiteConnection(dbPath))
 {
-	Console.WriteLine(string.Join("|", row.ItemArray));
+	if (IsTableExists<T>(connection))
+    {
+		var names = conn.Table<Names>();
+	}
+	// OR
+	var names = SimpleSQLite.Common.Get<Names>(conn);
 }
-mysql.Dispose();
 ```
 
+## API
+
+```
+var names = SimpleSQLite.Common.Get<Names>(conn);
+SimpleSQLite.Common.SaveTable<Names>(conn);
+```
 
 ### Prerequisities
 
@@ -22,7 +30,7 @@ mysql.Dispose();
 
 ### Installing
 
-https://www.nuget.org/packages/SimpleMysql/
+https://www.nuget.org/packages/SimpleSQLite/
 
 
 ## Built With
@@ -32,6 +40,6 @@ visual studio 2013
 
 ## License
 
-https://github.com/herbertagosto/SimpleMysql/blob/master/LICENSE_3RD_PARTY
-https://github.com/herbertagosto/SimpleMysql/blob/master/LICENSE
+https://github.com/herbertagosto/SimpleSQLite/blob/master/LICENSE_3RD_PARTY
+https://github.com/herbertagosto/SimpleSQLite/blob/master/LICENSE
 
