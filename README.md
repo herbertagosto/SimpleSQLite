@@ -7,12 +7,12 @@ sqlite-net extensions
 ```
 using (var conn = new SQLiteConnection(dbPath))
 {
-	if (IsTableExists<T>(connection))
+    if (IsTableExists<T>(connection))
     {
-		var names = conn.Table<Names>();
-	}
-	// OR
-	var names = SimpleSQLite.Common.Get<Names>(conn);
+        var names = conn.Table<Names>();
+    }
+    // OR
+    var names = SimpleSQLite.Common.Get<Names>(conn);
 }
 ```
 
